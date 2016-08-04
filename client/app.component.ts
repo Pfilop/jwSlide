@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Mongo } from 'meteor/mongo';
+import { Parties }   from '../both/collections/parties.collection';
 
 import template from './app.component.html';
 
@@ -6,4 +8,10 @@ import template from './app.component.html';
     selector: 'app',
     template
 })
-export class AppComponent {}
+export class AppComponent {
+    parties: Mongo.Cursor<any>;
+
+    constructor() {
+        this.parties = Parties.find();
+    }
+}

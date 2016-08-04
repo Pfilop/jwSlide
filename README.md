@@ -1,65 +1,31 @@
-# Angular2-Meteor-Base Tutorial
+# jwSlide
 
-## Usage
+## About
 
-Since Meteor v1.4 you can use one command to create a working Angular2 app based on this boilerplate:
+LIES- &amp; Lied-Texte sollen dynamisch aus der EPUB importiert werden können. (unzip)
 
-```
-meteor create --example angular2-boilerplate
-```
+Importierte Publikationen werden global gespeichert; Katalog auf User-Basis in der MongoDB gespeichert.
 
-## Boilerplate Contents
+Textausgaben werden via Socket bzw DDP an alle weiteren - nach dem Ersten - Clients gesendet (Zweites F11-Browserfenster für Beamer-Präsentation).
 
-This boilerplate contains the basics that requires to quick start with Angular2-Meteor application.
+Zu lange Texte (Liedtexte) werden mittels Links Maustaste oder Leertaste geblättert.
 
-This package contains:
+## Tools
 
-- TypeScript support and Angular 2 compilers for Meteor
-- Angular2-Meteor
-- Angular2 (core, common, compiler, platform)
-- SASS support
-- Testing framework with Mocha and Chai
+Folgende Pakete werden benutzt
 
-This application also contains demo code:
+- `Meteor` MEAN-ähnlicher Stack - beinhaltet Templating-Engine, MongoDB, node.js (-server), HTTP, etc
+- `Angular2` Bessere Templates und zusammen mit Meteor ein 3-way-data-binding
+- `SASS` compiler und alles ist bei meteor schon an Bord - Grunt, Gulp und Co werden nicht gebraucht
+- `TypeScript` .. warum auch nicht
 
-- Main Component (`/client/app.component`)
-- Demo Child Component (`/client/imports/demo/demo.component`)
-- Demo Service (`/client/imports/demo/demo-data.service`)
-- Demo Mongo Collection (`/both/demo-collection.ts`)
+## Installation
 
-The Main component loads the child component, which uses the demo service that gets it's data from the demo collection.
+Da alles bei meteor on board ist, reicht es dieses zu installieren.
 
-## Folder Structure
+PHP, Apache, MySQL, Java oder Sonstiges wird natürlich nicht benötigt.
 
-The folder structure is a mix between [Angular 2 recommendation](https://johnpapa.net/angular-2-styles/) and [Meteor 1.3 recommendation](https://guide.meteor.com/structure.html).
+Weitere projektbezogene Pakete und Module werden dann eh über
+` $ meteor ` bzw ` $ meteor npm install ` geholt.
 
-#### Client
-
-The `client` folder contains single TypeScript (`.ts`) file which is the main file (`/client/app.component.ts`), and bootstrap's the Angular 2 application.
-
-The main component uses HTML template and SASS file.
-
-The `index.html` file is the main HTML which loads the application by using the main component selector (`<app>`).
-
-All the other client files are under `client/imports` and organized by the context of the components (in our example, the context is `demo`).
-
-
-#### Server
-
-The `server` folder contain single TypeScript (`.ts`) file which is the main file (`/server/main.ts`), and creates the main server instance, and the starts it.
-
-All other server files should be located under `/server/imports`.
-
-#### Common
-
-Example for common files in our app, is the MongoDB collection we create - it located under `/both/demo-collection.ts` and it can be imported from both client and server code.
-
-## Testing
-
-The testing environment in this boilerplate based on [Meteor recommendation](https://guide.meteor.com/testing.html), and uses Mocha as testing framework along with Chai for assertion.
-
-There is a main test file that initialize Angular 2 tests library, it located under `/client/init.test.ts`.
-
-All other test files are located near the component/service it tests, with the `.test.ts` extension.
-
-The `DemoComponent` contains example for Angular 2 tests for Component, and in the server side there is an example for testing Meteor collections and stub data.
+Der Server wird dann auch über `$ meteor` gestartet.
